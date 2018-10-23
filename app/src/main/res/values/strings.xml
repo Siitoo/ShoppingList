@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ShoppingList</string>
     <string name="enter_new_item_hint">Enter new item...</string>
+    <string name="confirmation">Confirm</string>
+    <string name="remove_confirmation">Are you sure you want to remove the selected item?</string>
+    <string name="remove">Remove</string>
 </resources>

@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class ItemHolder extends RecyclerView.ViewHolder {
     private CheckBox name_view;
 
-    public ItemHolder(@NonNull View itemView, final ShoppingListAdapter.OnClickListener onClickListener) {
+    public ItemHolder(@NonNull View itemView, final ShoppingListAdapter.OnClickListener onClickListener,final ShoppingListAdapter.OnLongClickListener onLongClickListener) {
         super(itemView);
         name_view = itemView.findViewById(R.id.name_view);
         itemView.setOnClickListener(new View.OnClickListener() {
@@ -19,6 +19,18 @@ public class ItemHolder extends RecyclerView.ViewHolder {
                     int pos = getAdapterPosition();
                     onClickListener.onClick(pos);
                 }
+            }
+        });
+
+        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (onLongClickListener != null) {
+                    int pos = getAdapterPosition();
+                    onLongClickListener.onLongClick(pos);
+                    return true;
+                }
+                return false;
             }
         });
     }
